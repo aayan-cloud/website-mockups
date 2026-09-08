@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Expert Studio — Wedding Photographer, Faisalabad</title>
+<meta name="description" content="Wedding photographer in Faisalabad. 217 Google reviews, 4.9 stars. Book on +92 321 6684221.">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+<style>
+  /* A photographer's site is 90% their pictures. There are none here yet, so the frames
+     are deliberate, labelled placeholders - the layout that fills up the moment he sends
+     photos. Pretending with stock images of someone else's weddings would be a lie he
+     would spot instantly. */
+  :root{ --black:#0a0908; --off:#f6f2ec; --dim:rgba(246,242,236,.55); --line:#241f1c; --amber:#d8a24a; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--black);color:var(--off);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .ur{font-family:'Noto Nastaliq Urdu',serif;line-height:2.2;direction:rtl}
+  .is{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+  nav{padding:26px 0;display:flex;justify-content:space-between;align-items:center;max-width:1140px;margin:0 auto;padding-left:24px;padding-right:24px;flex-wrap:wrap;gap:12px}
+  .mark{font-family:'Instrument Serif',serif;font-size:22px;letter-spacing:.02em}
+  .mark i{font-style:italic;color:var(--amber)}
+  .navlink{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-decoration:none}
+  .navlink:hover{color:var(--amber)}
+
+  header{padding:66px 0 74px;text-align:center}
+  .tag{font-size:11px;letter-spacing:.36em;text-transform:uppercase;color:var(--amber);margin-bottom:24px}
+  h1{font-family:'Instrument Serif',serif;font-size:clamp(46px,11vw,116px);line-height:.98;letter-spacing:-.02em}
+  h1 i{font-style:italic;color:var(--amber)}
+  .lede{margin:26px auto 0;max-width:46ch;font-size:clamp(15px,3.3vw,18px);line-height:1.82;color:var(--dim);font-weight:300}
+  .lede-ur{margin:14px auto 0;max-width:38ch;font-size:16px;color:var(--dim)}
+  .stars{margin-top:30px;font-size:14px;color:var(--dim)}
+  .stars b{color:var(--amber);letter-spacing:3px}
+  .cta{display:flex;gap:13px;margin-top:34px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;padding:16px 32px;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:.2s;border-radius:2px}
+  .b1{background:var(--amber);color:#14100a;font-weight:600} .b1:hover{background:#e6b45f}
+  .b2{border:1px solid var(--line);color:var(--off)} .b2:hover{border-color:var(--amber);color:var(--amber)}
+
+  /* the gallery: a real editorial grid, sized and ready */
+  .gal{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:12px}
+  .f{position:relative;background:#111010;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .f:after{content:attr(data-l);position:absolute;bottom:12px;left:14px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(246,242,236,.3)}
+  .f span{font-family:'Instrument Serif',serif;font-size:13px;color:rgba(246,242,236,.3);text-align:center;padding:0 16px;line-height:1.7}
+  .f1{grid-column:span 4;aspect-ratio:4/3}
+  .f2{grid-column:span 2;aspect-ratio:2/3}
+  .f3{grid-column:span 2;aspect-ratio:1/1}
+  .f4{grid-column:span 2;aspect-ratio:1/1}
+  .f5{grid-column:span 2;aspect-ratio:1/1}
+  .f6{grid-column:span 3;aspect-ratio:3/2}
+  .f7{grid-column:span 3;aspect-ratio:3/2}
+
+  section{padding:78px 0;border-top:1px solid var(--line)}
+  .eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--amber);margin-bottom:16px}
+  h2{font-family:'Instrument Serif',serif;font-size:clamp(32px,7vw,60px);line-height:1.06;margin-bottom:34px}
+
+  .pk{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .p{border:1px solid var(--line);padding:32px 26px;background:#0e0d0c}
+  .p h3{font-family:'Instrument Serif',serif;font-size:26px;margin-bottom:10px}
+  .p ul{list-style:none;color:var(--dim);font-size:14px;line-height:2;font-weight:300}
+  .p ul li:before{content:'—  ';color:var(--amber)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .row{padding:15px 0;border-bottom:1px solid var(--line)}
+  .row span{display:block;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:5px}
+  .row b{font-weight:500;font-size:15.5px}
+
+  footer{padding:74px 0 84px;text-align:center}
+  footer .is{font-size:clamp(30px,7vw,58px);margin-bottom:18px}
+  footer a{color:var(--amber);text-decoration:none;font-size:20px;letter-spacing:.05em}
+  .fine{margin-top:32px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#4a433d}
+
+  @media(max-width:820px){
+    .gal{grid-template-columns:repeat(2,1fr)}
+    .f1,.f2,.f3,.f4,.f5,.f6,.f7{grid-column:span 2;aspect-ratio:4/3}
+    .pk,.visit{grid-template-columns:1fr}
+    header{padding:48px 0 56px}
+  }
+</style>
+<link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+
+<nav>
+  <div class="mark is">Expert Studio</div>
+  <a class="navlink" href="https://wa.me/923216684221">WhatsApp</a>
+</nav>
+
+<header><div class="wrap">
+  <div class="tag">Wedding Photography · Faisalabad</div>
+  <h1 class="is">The day goes fast.<br><i>The pictures don't.</i></h1>
+  <p class="lede">Barat, walima, mehndi and nikkah, shot across Faisalabad. Candid where it matters, posed where you want it.</p>
+  <p class="lede ur lede-ur">بارات، ولیمہ، مہندی اور نکاح۔ لاہور بھر میں فوٹوگرافی۔</p>
+  <div class="stars"><b>★★★★★</b> &nbsp;4.9 · 217 Google reviews</div>
+  <div class="cta">
+    <a class="btn b1" href="https://wa.me/923216684221">Check your date</a>
+    <a class="btn b2" href="tel:+923216684221">+92 321 6684221</a>
+  </div>
+</div></header>
+
+<section style="border-top:none;padding-top:0"><div class="wrap">
+  <div class="eyebrow">Recent work · حالیہ کام</div>
+  <div class="gal">
+    <div class="f f1" data-l="Barat"><span>Your photograph here<br>آپ کی تصویر یہاں</span></div>
+    <div class="f f2" data-l="Bride"><span>Portrait</span></div>
+    <div class="f f3" data-l="Mehndi"><span>Photo</span></div>
+    <div class="f f4" data-l="Nikkah"><span>Photo</span></div>
+    <div class="f f5" data-l="Details"><span>Photo</span></div>
+    <div class="f f6" data-l="Walima"><span>Photo</span></div>
+    <div class="f f7" data-l="Couple"><span>Photo</span></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">Packages · پیکجز</div>
+  <h2>Three ways to book</h2>
+  <div class="pk">
+    <div class="p"><h3>Single event</h3><ul><li>One function</li><li>Full-day coverage</li><li>Edited photographs</li><li>Online gallery</li></ul></div>
+    <div class="p"><h3>Two events</h3><ul><li>Mehndi + barat, or your pair</li><li>Full-day coverage</li><li>Edited photographs</li><li>Highlight film</li></ul></div>
+    <div class="p"><h3>Full wedding</h3><ul><li>Every function</li><li>Second shooter</li><li>Album included</li><li>Highlight + full film</li></ul></div>
+  </div>
+  <p style="margin-top:24px;color:var(--dim);font-size:14.5px;font-weight:300">Message the date and which functions you need, and we will send the price for exactly that.</p>
+  <p class="ur" style="margin-top:10px;color:var(--dim);font-size:15px">اپنی تاریخ اور فنکشنز بتائیں، اسی حساب سے قیمت بھیج دی جائے گی۔</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">Booking · رابطہ</div>
+  <h2>Check if your date<br>is still open</h2>
+  <div class="visit">
+    <div>
+      <div class="row"><span>Based in</span><b>Faisalabad — travels for weddings</b></div>
+      <div class="row"><span>Phone</span><b>+92 321 6684221</b></div>
+      <div class="row"><span>WhatsApp</span><b>+92 321 6684221</b></div>
+    </div>
+    <div>
+      <p style="color:var(--dim);line-height:1.9;font-size:15.5px;font-weight:300">Wedding season dates go early. Send the date first — if it is taken there is no point discussing anything else, and we will say so straight away.</p>
+      <p class="ur" style="color:var(--dim);margin-top:18px">پہلے تاریخ بھیجیں۔ اگر وہ دن پہلے سے بک ہے تو ہم فوراً بتا دیں گے۔</p>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="is">Book your date</div>
+  <a href="tel:+923216684221">+92 321 6684221</a>
+  <div class="fine">Expert Studio · Wedding Photographer · Faisalabad</div>
+</div><div style="margin-top:18px;font-size:11px;letter-spacing:.02em;text-transform:none;color:#9a9a9a;line-height:1.7;max-width:46ch;margin-left:auto;margin-right:auto">Draft mockup — services, packages and wording are a starting point and will be corrected to whatever you actually offer.<br><span style="font-family:'Noto Nastaliq Urdu',serif">یہ صرف ڈرافٹ ہے۔ خدمات اور تفصیلات آپ کے مطابق درست کی جائیں گی۔</span></div>
+</footer>
+
+<script src="../shared.js"></script>
+</body>
+</html>
