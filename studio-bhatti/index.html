@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Studio Bhatti — E-Commerce &amp; Wedding Photography, Lahore</title>
+<meta name="description" content="Product photography for e-commerce brands and wedding photography in Lahore. 123 Google reviews, 5.0 stars. +92 311 4500560.">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Inter:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+<style>
+  /* Two audiences on one page: brands buying product shots, and couples buying a wedding.
+     Split cleanly rather than blending them into mush - the brand half reads like a
+     supplier, the wedding half reads like a person. */
+  :root{ --white:#ffffff; --paper:#f2f2f0; --ink:#101112; --muted:#6e7276; --line:#e2e2df; --lime:#c8f24a; --deep:#131416; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--white);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .ur{font-family:'Noto Nastaliq Urdu',serif;line-height:2.15;direction:rtl}
+  .ar{font-family:Archivo,system-ui,sans-serif}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 26px}
+
+  nav{border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;padding:20px 26px;gap:14px;flex-wrap:wrap}
+  .mark{font-family:Archivo,sans-serif;font-weight:800;font-size:17px;letter-spacing:-.02em}
+  .pill{background:var(--ink);color:#fff;padding:10px 18px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none}
+
+  header{padding:76px 0 64px}
+  .tag{display:inline-block;background:var(--lime);color:#1a2205;padding:6px 13px;border-radius:100px;
+    font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
+  h1{font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(40px,8.8vw,88px);line-height:.96;letter-spacing:-.04em;max-width:16ch}
+  .lede{margin-top:24px;max-width:48ch;font-size:clamp(15px,3.2vw,18px);line-height:1.75;color:var(--muted);font-weight:300}
+  .lede-ur{margin-top:14px;max-width:38ch;font-size:15.5px;color:var(--muted)}
+  .rate{margin-top:26px;font-size:14px;color:var(--muted)}
+  .rate b{color:#d9a520;letter-spacing:2px}
+  .cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;padding:16px 30px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;transition:.18s}
+  .b1{background:var(--ink);color:#fff} .b1:hover{background:#2b2e31}
+  .b2{border:1px solid var(--line);color:var(--ink)} .b2:hover{border-color:var(--ink)}
+
+  section{padding:74px 0;border-top:1px solid var(--line)}
+  .eyebrow{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:16px}
+  h2{font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(28px,5.8vw,50px);line-height:1.04;letter-spacing:-.032em;margin-bottom:32px}
+
+  /* product-shot grid: square frames, exactly how an e-comm catalogue looks */
+  .shots{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .sh{aspect-ratio:1/1;background:var(--paper);border:1px solid var(--line);border-radius:6px;
+    display:flex;align-items:center;justify-content:center;position:relative}
+  .sh span{font-size:12px;color:#a6a9ab;text-align:center;padding:0 12px;line-height:1.7}
+  .sh:after{content:attr(data-l);position:absolute;bottom:10px;left:12px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#b4b7b9}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card{border:1px solid var(--line);border-radius:14px;padding:34px 30px}
+  .card.dark{background:var(--deep);color:#f2f2f0;border-color:var(--deep)}
+  .card h3{font-family:Archivo,sans-serif;font-weight:800;font-size:24px;margin-bottom:12px;letter-spacing:-.02em}
+  .card ul{list-style:none;font-size:14.5px;line-height:2.05;font-weight:300;color:var(--muted)}
+  .card.dark ul{color:rgba(242,242,240,.66)}
+  .card ul li:before{content:'· '}
+  .card .who{font-size:11px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px;color:var(--muted)}
+  .card.dark .who{color:var(--lime)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:42px}
+  .row{padding:15px 0;border-bottom:1px solid var(--line)}
+  .row span{display:block;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  .row b{font-weight:500;font-size:15.5px}
+
+  footer{padding:70px 0 80px;text-align:center;border-top:1px solid var(--line)}
+  footer .ar{font-weight:800;font-size:clamp(28px,6.2vw,52px);letter-spacing:-.035em;margin-bottom:16px}
+  footer a{color:var(--ink);text-decoration:none;font-size:21px;font-weight:700;border-bottom:3px solid var(--lime)}
+  .fine{margin-top:30px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9ea2a5}
+
+  @media(max-width:820px){
+    .shots{grid-template-columns:repeat(2,1fr)}
+    .two,.visit{grid-template-columns:1fr}
+    header{padding:52px 0 48px}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="mark">STUDIO BHATTI</div>
+  <a class="pill" href="https://wa.me/923114500560">Get a quote</a>
+</div></nav>
+
+<header><div class="wrap">
+  <div class="tag">Lahore · 5.0 ★ · 123 reviews</div>
+  <h1 class="ar">Photographs that make the product sell itself.</h1>
+  <p class="lede">Product and catalogue photography for e-commerce brands, and wedding photography for people who want the day done properly. Two very different jobs, one studio.</p>
+  <p class="lede ur lede-ur">ای کامرس برانڈز کے لیے پروڈکٹ فوٹوگرافی اور شادیوں کی فوٹوگرافی۔ ایک ہی سٹوڈیو، دو الگ کام۔</p>
+  <div class="rate"><b>★★★★★</b> &nbsp;5.0 average · 123 Google reviews</div>
+  <div class="cta">
+    <a class="btn b1" href="https://wa.me/923114500560">WhatsApp the studio</a>
+    <a class="btn b2" href="tel:+923114500560">+92 311 4500560</a>
+  </div>
+</div></header>
+
+<section><div class="wrap">
+  <div class="eyebrow">Catalogue work · پروڈکٹ فوٹوگرافی</div>
+  <h2>Clean product shots,<br>shot to a spec</h2>
+  <div class="shots">
+    <div class="sh" data-l="White bg"><span>Your product<br>آپ کی پروڈکٹ</span></div>
+    <div class="sh" data-l="Lifestyle"><span>Photo</span></div>
+    <div class="sh" data-l="Detail"><span>Photo</span></div>
+    <div class="sh" data-l="On model"><span>Photo</span></div>
+    <div class="sh" data-l="Flat lay"><span>Photo</span></div>
+    <div class="sh" data-l="Packaging"><span>Photo</span></div>
+    <div class="sh" data-l="Group"><span>Photo</span></div>
+    <div class="sh" data-l="Angles"><span>Photo</span></div>
+  </div>
+  <p style="margin-top:22px;color:var(--muted);font-size:14.5px;font-weight:300">Same background, same lighting, same crop across the whole catalogue — so your store page looks like one brand and not forty different photographers.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">Two kinds of booking</div>
+  <div class="two">
+    <div class="card dark">
+      <div class="who">For brands</div>
+      <h3>E-commerce shoots</h3>
+      <ul>
+        <li>Per-product or per-day rates</li>
+        <li>White background &amp; lifestyle</li>
+        <li>On-model shoots</li>
+        <li>Edited, resized, ready to upload</li>
+        <li>Repeat shoots kept consistent</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="who">For couples</div>
+      <h3>Wedding photography</h3>
+      <ul>
+        <li>Mehndi, barat, walima, nikkah</li>
+        <li>Single event or full wedding</li>
+        <li>Candid and traditional</li>
+        <li>Highlight film available</li>
+        <li>Album on request</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">Studio · رابطہ</div>
+  <h2>Model Town Link Road</h2>
+  <div class="visit">
+    <div>
+      <div class="row"><span>Studio</span><b>LG-073, Zainab Tower, Model Town Link Rd,<br>Phase 3 GECHS, Lahore 54000</b></div>
+      <div class="row"><span>Phone</span><b>+92 311 4500560</b></div>
+      <div class="row"><span>WhatsApp</span><b>+92 311 4500560</b></div>
+    </div>
+    <div>
+      <p style="color:var(--muted);line-height:1.9;font-size:15.5px;font-weight:300">Brands: send how many products and what kind of shots and you will get a per-item price the same day. Weddings: send the date first.</p>
+      <p class="ur" style="color:var(--muted);margin-top:18px">برانڈز: پروڈکٹس کی تعداد بتائیں، اسی دن قیمت مل جائے گی۔ شادی کے لیے پہلے تاریخ بھیجیں۔</p>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="ar">Send us the brief.</div>
+  <a href="tel:+923114500560">+92 311 4500560</a>
+  <div class="fine">Studio Bhatti Official · Lahore</div>
+</div></footer>
+
+</body>
+</html>
