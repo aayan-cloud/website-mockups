@@ -64,6 +64,17 @@ function areaOf(addr, city) {
 
 const onlyArg = (process.argv.find((a) => a.startsWith('--only=')) || '').split('=')[1];
 
+/**
+ * Numbers already messaged. Their pages exist at hand-made slugs and the links in those
+ * sent messages point there, so regenerating them under a generated slug leaves a live
+ * page nobody links to and a second copy that quietly diverges. Deleting the duplicates
+ * by hand worked exactly once, until the next build put them back.
+ */
+const MESSAGED = path.join(__dirname, 'messaged.txt');
+const messaged = fs.existsSync(MESSAGED)
+  ? new Set(fs.readFileSync(MESSAGED, 'utf8').split(/\s+/).filter(Boolean))
+  : new Set();
+
 const leads = JSON.parse(fs.readFileSync(LEADS, 'utf8'));
 const built = [];
 const skipped = [];
@@ -72,6 +83,7 @@ for (const l of leads) {
   const tpl = templateFor(l.category);
   const wa = digits(l.phone);
 
+  if (messaged.has(wa)) { skipped.push([l.title, 'already messaged - page is live at its original slug']); continue; }
   if (!tpl) { skipped.push([l.title, 'no template for "' + l.category + '"']); continue; }
   if (onlyArg && tpl !== onlyArg) continue;
   // WhatsApp is the whole delivery mechanism. A landline lead has no route to the owner,

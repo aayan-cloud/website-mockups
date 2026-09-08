@@ -8,7 +8,8 @@
   "phone": "+92 302 2000099",
   "wa": "923022000099",
   "city": "Lahore",
-  "category": "Interior designer"
+  "category": "Interior designer",
+  "pageHeight": 3608
  },
  {
   "dir": "zoellas-beauty-salon",
@@ -19,7 +20,8 @@
   "phone": "+92 311 1802834",
   "wa": "923111802834",
   "city": "Karachi",
-  "category": "Beauty salon"
+  "category": "Beauty salon",
+  "pageHeight": 2993
  },
  {
   "dir": "aj-studio",
@@ -30,7 +32,8 @@
   "phone": "+92 300 8229414",
   "wa": "923008229414",
   "city": "Karachi",
-  "category": "Wedding photographer"
+  "category": "Wedding photographer",
+  "pageHeight": 3639
  },
  {
   "dir": "persona-interior-designer-and-decorator",
@@ -41,7 +44,8 @@
   "phone": "+92 300 2596328",
   "wa": "923002596328",
   "city": "Karachi",
-  "category": "Interior designer"
+  "category": "Interior designer",
+  "pageHeight": 3628
  },
  {
   "dir": "inzar-s-beauty-studio",
@@ -52,7 +56,8 @@
   "phone": "+92 329 5112223",
   "wa": "923295112223",
   "city": "Lahore",
-  "category": "Beauty salon"
+  "category": "Beauty salon",
+  "pageHeight": 3081
  },
  {
   "dir": "design-spot",
@@ -63,7 +68,8 @@
   "phone": "+92 301 8040000",
   "wa": "923018040000",
   "city": "Faisalabad",
-  "category": "Interior designer"
+  "category": "Interior designer",
+  "pageHeight": 3608
  },
  {
   "dir": "tulips-ladies-salon",
@@ -74,50 +80,7 @@
   "phone": "+92 304 4452056",
   "wa": "923044452056",
   "city": "Lahore",
-  "category": "Beauty salon"
- },
- {
-  "dir": "myas-interior",
-  "tpl": "interior",
-  "title": "MYAS Interior",
-  "reviews": 29,
-  "rating": 4.8,
-  "phone": "+92 323 4220017",
-  "wa": "923234220017",
-  "city": "Faisalabad",
-  "category": "Interior designer"
- },
- {
-  "dir": "boutique-by-atique",
-  "tpl": "couture",
-  "title": "Boutique By Atique",
-  "reviews": 26,
-  "rating": 4.8,
-  "phone": "+92 300 4003800",
-  "wa": "923004003800",
-  "city": "Lahore",
-  "category": "Boutique"
- },
- {
-  "dir": "archideators-interior-designers-architectu",
-  "tpl": "interior",
-  "title": "Archideators - Interior Designers, Architecture Design & Construction Service",
-  "reviews": 16,
-  "rating": 4.8,
-  "phone": "+92 316 0390850",
-  "wa": "923160390850",
-  "city": "Karachi",
-  "category": "Interior architect office"
- },
- {
-  "dir": "worldtex-boutique",
-  "tpl": "couture",
-  "title": "WORLDTEX BOUTIQUE",
-  "reviews": 13,
-  "rating": 5,
-  "phone": "+92 322 4333982",
-  "wa": "923224333982",
-  "city": "Lahore",
-  "category": "Boutique"
+  "category": "Beauty salon",
+  "pageHeight": 3081
  }
 ]
