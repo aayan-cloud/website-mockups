@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ramkal's Sawmilling Co Ltd. - Roofing materials and sawmilling in Penal, Trinidad</title>
+<meta name="description" content="Ramkal's Sawmilling Co Ltd.: Roofing materials and sawmilling in Penal, Trinidad. Call +1 868-647-4029.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* A tradesman's one-pager: the phone number is the product. Deliberately nothing
+   like the salon templates - a roofer and a beauty salon should not get the same
+   website. Dark slate, one high-visibility accent, big tap targets. */
+:root{
+  --ink:#14181f;
+  --slate:#1e2530;
+  --paper:#f6f7f9;
+  --line:#d8dde5;
+  --muted:#6b7382;
+  --accent:#f2a600;
+  --accent-dark:#c98a00;
+  --radius:10px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper);font-size:17px;line-height:1.6}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:"Barlow Condensed",Inter,sans-serif;font-weight:700;line-height:1.02;text-transform:uppercase;letter-spacing:.01em}
+h1{font-size:clamp(2.6rem,7vw,4.6rem)}
+h2{font-size:clamp(1.8rem,4vw,2.7rem)}
+h3{font-size:1.15rem;letter-spacing:.02em}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:clamp(18px,4vw,40px)}
+.section{padding-block:clamp(52px,8vw,92px)}
+
+/* call bar */
+.bar{background:var(--slate);color:#fff;position:sticky;top:0;z-index:20}
+.bar__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:64px}
+.bar__name{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.35rem;text-transform:uppercase;letter-spacing:.04em}
+.call{
+  display:inline-flex;align-items:center;gap:.55rem;background:var(--accent);color:#14181f;
+  text-decoration:none;font-weight:700;padding:.7rem 1.2rem;border-radius:999px;white-space:nowrap;
+}
+.call:hover{background:var(--accent-dark)}
+
+/* hero */
+.hero{background:var(--slate);color:#fff;position:relative;overflow:hidden}
+.hero__in{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(26px,4vw,56px);align-items:center;padding-block:clamp(44px,7vw,86px)}
+.hero h1{color:#fff}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{margin-top:1.2rem;color:#c3cad6;font-size:clamp(1.02rem,1.6vw,1.2rem);max-width:42ch}
+.hero__cta{margin-top:2rem;display:flex;gap:.9rem;flex-wrap:wrap}
+.btn2{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.4rem;border-radius:999px;border:2px solid rgba(255,255,255,.35);color:#fff;text-decoration:none;font-weight:600}
+.btn2:hover{border-color:#fff}
+.shot{border-radius:var(--radius);overflow:hidden;background:#2a323f;border:1px solid rgba(255,255,255,.14)}
+.ph{aspect-ratio:4/3;display:grid;place-items:center;text-align:center;color:#8d97a6;font-size:.9rem;padding:1.2rem;background:
+  repeating-linear-gradient(45deg,#262e3a 0 12px,#2a323f 12px 24px)}
+@media (max-width:880px){.hero__in{grid-template-columns:1fr}}
+
+/* trust */
+.trust{background:#fff;border-bottom:1px solid var(--line)}
+.trust__in{display:flex;flex-wrap:wrap;gap:1.4rem 2.6rem;padding-block:22px;align-items:center;font-weight:600;color:var(--ink)}
+.trust__in span{display:inline-flex;align-items:center;gap:.5rem;font-size:.98rem}
+.tick{width:20px;height:20px;flex:none;color:var(--accent)}
+
+/* services */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(14px,2vw,22px);margin-top:clamp(24px,3vw,38px)}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:clamp(20px,2.4vw,28px)}
+.card h3{margin-bottom:.5rem}
+.card p{color:var(--muted);font-size:.97rem}
+.note{margin-top:1.6rem;font-size:.9rem;color:var(--muted);max-width:66ch}
+
+/* area + contact */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,52px);align-items:start}
+@media (max-width:880px){.split{grid-template-columns:1fr}}
+.contact{background:var(--slate);color:#fff;border-radius:var(--radius);padding:clamp(24px,3.4vw,40px)}
+.contact h2{color:#fff}
+.contact dl{margin:1.6rem 0 0;display:grid;gap:1rem}
+.contact dt{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#98a2b3;font-weight:700}
+.contact dd{margin:.2rem 0 0;font-size:1.12rem;font-weight:600}
+.contact a{color:var(--accent)}
+footer{border-top:1px solid var(--line);background:#fff}
+.foot{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-block:24px;font-size:.92rem;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap bar__in">
+    <span class="bar__name">Ramkal's Sawmilling Co Ltd.</span>
+    <a class="call" href="tel:+18686474029">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+      +1 868-647-4029
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero__in">
+    <div>
+      <h1>Roofing materials<br>& sawmilling<br><em>in Penal, Trinidad</em></h1>
+      <p>Roofing materials, pallets and sawmill services from Katwaroo Branch Trace in Penal. Call for prices and what is in stock.</p>
+      <div class="hero__cta">
+        <a class="call" href="tel:+18686474029">Call +1 868-647-4029</a>
+        <a class="btn2" href="https://www.facebook.com/Ramkals" target="_blank" rel="noopener">Message on Facebook</a>
+      </div>
+    </div>
+    <div class="shot"><div class="ph">Your photo of a finished job goes here.<br>Send me three and I will place them.</div></div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap trust__in">
+    <span><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Trading and advertising for over 8 years</span>
+    <span><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>30,000 followers on Facebook</span>
+    <span><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Penal, south Trinidad</span>
+  </div>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    <h2>What we do</h2>
+    <div class="grid">
+      <div class="card"><h3>Roofing materials</h3><p>Sheeting, fixings and everything that goes with a roof.</p></div>
+      <div class="card"><h3>Sawmilling</h3><p>Cut to the sizes a job actually needs.</p></div>
+      <div class="card"><h3>Pallets and skids</h3><p>Made to order for shipping and storage.</p></div>
+    </div>
+    <p class="note">These three are our best guess at what you do, taken from your Facebook page. Tell me what is wrong and I will change it.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap split">
+    <div>
+      <h2>Where we work</h2>
+      <p style="margin-top:1rem;color:var(--muted);max-width:48ch">#37 Katwaroo Branch Trace, Penal, Trinidad. Serving Penal, Debe and the surrounding south.</p>
+      <div class="shot" style="margin-top:1.6rem;background:#eef1f5;border-color:var(--line)">
+        <div class="ph" style="background:repeating-linear-gradient(45deg,#e7ebf1 0 12px,#eef1f5 12px 24px);color:#7c8698">A map or a photo of the van goes here.</div>
+      </div>
+    </div>
+    <div class="contact">
+      <h2>Get a quote</h2>
+      <p style="margin-top:1rem;color:#c3cad6">Tell us the job and the address. No charge for a look.</p>
+      <dl>
+        <dt>Phone</dt><dd><a href="tel:+18686474029">+1 868-647-4029</a></dd>
+        <dt>Email</dt><dd><a href="mailto:ramkalsawmilling@gmail.com">ramkalsawmilling@gmail.com</a></dd>
+        <dt>Facebook</dt><dd><a href="https://www.facebook.com/Ramkals" target="_blank" rel="noopener">facebook.com/Ramkals</a></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>Ramkal's Sawmilling Co Ltd. - Penal, Trinidad</span>
+    <span>Free draft by Realm Systems</span>
+  </div>
+</footer>
+
+</body>
+</html>
