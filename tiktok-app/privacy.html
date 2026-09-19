@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy — Automate Upload</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 46rem; margin: 0 auto; padding: 3rem 1.25rem 6rem;
+             font: 16px/1.65 -apple-system, "Segoe UI", system-ui, sans-serif; }
+      h1 { font-size: 1.8rem; letter-spacing: -0.02em; margin-bottom: 0.25rem; }
+      h2 { font-size: 1.1rem; margin-top: 2.25rem; }
+      .date { color: #6b7280; margin-top: 0; }
+      ul { padding-left: 1.2rem; }
+      code { background: rgba(127,127,127,.15); padding: 0.1em 0.35em; border-radius: 3px; }
+    </style>
+  </head>
+  <body>
+    <h1>Privacy Policy</h1>
+    <p class="date">Automate Upload · last updated 20 September 2026</p>
+
+    <p>
+      Automate Upload is a personal command-line tool. It uploads videos its own operator has
+      made to that same operator's TikTok account. It is not a product, it has no other users,
+      and it has no server.
+    </p>
+
+    <h2>What it collects</h2>
+    <p>Nothing. There is no analytics, no telemetry, no database and no backend to collect it with.</p>
+
+    <h2>What it stores, and where</h2>
+    <ul>
+      <li>
+        A TikTok access token and refresh token, written to <code>~/.tiktok-cli.json</code> on the
+        operator's own computer with owner-only file permissions. They never leave that machine
+        except in requests to TikTok's own API.
+      </li>
+      <li>
+        Video files chosen by the operator, read from local disk and sent to TikTok. No copy is
+        kept anywhere else.
+      </li>
+    </ul>
+
+    <h2>What it sends, and to whom</h2>
+    <p>
+      Requests go to <code>open.tiktokapis.com</code> and nowhere else. No third party receives
+      any data from this tool. Nothing is shared, sold, or used for advertising.
+    </p>
+
+    <h2>TikTok permissions used</h2>
+    <ul>
+      <li><code>user.info.basic</code> — to confirm which account is connected.</li>
+      <li><code>video.upload</code> — to place a video in that account's own drafts, where a human
+        reviews and publishes it.</li>
+    </ul>
+
+    <h2>Retention and deletion</h2>
+    <p>
+      Deleting <code>~/.tiktok-cli.json</code> removes every credential the tool holds. Access can
+      also be revoked at any time from TikTok's own settings, under connected apps.
+    </p>
+
+    <h2>Children</h2>
+    <p>The tool is not directed at children and has no public sign-up of any kind.</p>
+
+    <h2>Contact</h2>
+    <p>whiteninja3219@gmail.com</p>
+  </body>
+</html>
