@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Automate Upload</title>
+    <style>
+      :root { color-scheme: light dark; --lime: #5a9e22; }
+      @media (prefers-color-scheme: dark) { :root { --lime: #8bf14a; } }
+      body { max-width: 44rem; margin: 0 auto; padding: 4rem 1.25rem 6rem;
+             font: 16px/1.65 -apple-system, "Segoe UI", system-ui, sans-serif; }
+      h1 { font-size: 2rem; letter-spacing: -0.03em; margin: 0 0 .5rem; }
+      .sub { color: #6b7280; margin-top: 0; font-size: 1.05rem; }
+      h2 { font-size: 1.05rem; margin-top: 2.5rem; }
+      ul { padding-left: 1.2rem; }
+      code { background: rgba(127,127,127,.15); padding: .1em .35em; border-radius: 3px; }
+      a { color: var(--lime); }
+      footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid rgba(127,127,127,.25);
+               color: #6b7280; font-size: .9rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Automate Upload</h1>
+    <p class="sub">A command-line tool for putting my own finished videos into my own TikTok drafts.</p>
+
+    <h2>What it does</h2>
+    <p>
+      I render short videos locally. This tool takes a finished file from my machine and sends it
+      to my TikTok account as a draft, using TikTok's Content Posting API. I then open TikTok,
+      look at the draft, and decide whether to publish it.
+    </p>
+
+    <h2>What it does not do</h2>
+    <ul>
+      <li>It does not post publicly on its own. Everything lands in drafts for a human to review.</li>
+      <li>It does not touch anyone else's account. One operator, one account.</li>
+      <li>It has no server, no sign-up and no users other than me.</li>
+      <li>It collects nothing. There is no analytics and nowhere for data to go.</li>
+    </ul>
+
+    <h2>How it handles credentials</h2>
+    <p>
+      The access and refresh tokens live in <code>~/.tiktok-cli.json</code> on my own computer,
+      readable only by my user account. They are sent to <code>open.tiktokapis.com</code> and
+      nowhere else. Deleting that file removes them.
+    </p>
+
+    <h2>Permissions it asks for</h2>
+    <ul>
+      <li><code>user.info.basic</code> — confirm which account is connected.</li>
+      <li><code>video.upload</code> — place a video in that account's drafts.</li>
+    </ul>
+
+    <footer>
+      <a href="terms.html">Terms of Service</a> · <a href="privacy.html">Privacy Policy</a><br />
+      Contact: whiteninja3219@gmail.com
+    </footer>
+  </body>
+</html>
