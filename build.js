@@ -25,14 +25,22 @@
 const fs = require('fs');
 const path = require('path');
 
-const LEADS = 'C:/Users/Aayan/Documents/sunbiz-leads/data/leads.json';
+// Default stays the Sunbiz/PK set so existing use is unchanged. --leads=<path> points it at
+// another file, which is how a Google Maps run gets in without overwriting that one.
+const LEADS =
+  (process.argv.find((a) => a.startsWith('--leads=')) || '').split('=')[1] ||
+  'C:/Users/Aayan/Documents/sunbiz-leads/data/leads.json';
 const TPL = path.join(__dirname, 'templates');
 
 /** Google's category -> which of the five designs suits it. */
 const PICK = [
   // Order matters, first match wins. This one goes above 'salon' deliberately: "Pet grooming
   // salon" is a real Google category and would otherwise be handed the bridal-makeup design.
-  [/pet groom|dog groom|cat groom|pet salon|groomer|car valet|valeting|car detail|mobile detail|car wash|mobile car/i, 'localservice'],
+  // Mobile and local trades: no premises worth photographing, the review count and the
+  // phone number are the whole pitch. Above 'salon' because "Pet grooming salon" is a real
+  // category, and above 'interior' because "Landscape architect" is too - a Manchester
+  // landscaper was being handed the Urdu bilingual interior-design page.
+  [/pet groom|dog groom|cat groom|pet salon|groomer|dog breeder|car valet|valeting|car detail|mobile detail|car wash|mobile car|garden|landscap|lawn|fenc|tree surgeon|waste|rubbish|clearance|window clean|driveway|gutter|handyman|removals|plumb|electrician|roofer|paving/i, 'localservice'],
   [/beauty salon|hair salon|salon|spa|parlour|barber/i, 'salon'],
   [/photography studio|photographer.*commerce|studio/i, 'photostudio'],
   [/photograph/i, 'photographer'],
@@ -142,7 +150,13 @@ for (const l of leads) {
   built.push({ dir, tpl, title: l.title, reviews: l.reviews, rating: l.rating, phone: l.phone, wa, city, category: l.category });
 }
 
-fs.writeFileSync(path.join(__dirname, 'built.json'), JSON.stringify(built, null, 1));
+// Merge rather than clobber. built.json is the index the clip tooling reads, and a run over
+// one country's leads used to replace every row in it - the other country's pages stayed on
+// disk but vanished from the index, which looks exactly like they were never built.
+const INDEX = path.join(__dirname, 'built.json');
+const prior = fs.existsSync(INDEX) ? JSON.parse(fs.readFileSync(INDEX, 'utf8')) : [];
+const merged = prior.filter((p) => !built.some((b) => b.dir === p.dir)).concat(built);
+fs.writeFileSync(INDEX, JSON.stringify(merged, null, 1));
 
 console.log(built.length + ' pages built\n');
 const byTpl = {};
