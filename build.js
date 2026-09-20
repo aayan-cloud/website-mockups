@@ -30,6 +30,9 @@ const TPL = path.join(__dirname, 'templates');
 
 /** Google's category -> which of the five designs suits it. */
 const PICK = [
+  // Order matters, first match wins. This one goes above 'salon' deliberately: "Pet grooming
+  // salon" is a real Google category and would otherwise be handed the bridal-makeup design.
+  [/pet groom|dog groom|cat groom|pet salon|groomer|car valet|valeting|car detail|mobile detail|car wash|mobile car/i, 'localservice'],
   [/beauty salon|hair salon|salon|spa|parlour|barber/i, 'salon'],
   [/photography studio|photographer.*commerce|studio/i, 'photostudio'],
   [/photograph/i, 'photographer'],
@@ -37,6 +40,9 @@ const PICK = [
   [/fashion|boutique|couture|tailor|design(er)? in/i, 'couture'],
 ];
 const templateFor = (cat) => (PICK.find(([re]) => re.test(cat || '')) || [])[1];
+
+/** Mobile prefixes we can reach on WhatsApp. Add a country by adding its prefix here. */
+const MOBILE = [/^923/, /^447/];
 
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 42);
 const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -87,11 +93,13 @@ for (const l of leads) {
   if (!tpl) { skipped.push([l.title, 'no template for "' + l.category + '"']); continue; }
   if (onlyArg && tpl !== onlyArg) continue;
   // WhatsApp is the whole delivery mechanism. A landline lead has no route to the owner,
-  // so a page for it is work nobody will ever see.
-  if (!wa.startsWith('923')) { skipped.push([l.title, 'no mobile number']); continue; }
+  // so a page for it is work nobody will ever see. The test is which country's MOBILE
+  // prefix this is, not which country: hardcoding 923 silently dropped every lead from a
+  // GB run before the template was even consulted.
+  if (!MOBILE.some((re) => re.test(wa))) { skipped.push([l.title, 'no mobile number']); continue; }
   if (!l.reviews) { skipped.push([l.title, 'no reviews - nothing to open the message with']); continue; }
 
-  const city = String(l.city || '').replace(/ Pakistan$/, '');
+  const city = String(l.city || '').replace(/,?\s*(Pakistan|United Kingdom|UK|England|Scotland|Wales)$/i, '');
   const short = esc(l.title.split(/[-(–|]/)[0].trim().slice(0, 34));
   const html = fs.readFileSync(path.join(TPL, tpl + '.html'), 'utf8')
     .split('{{NAME}}').join(esc(l.title))
