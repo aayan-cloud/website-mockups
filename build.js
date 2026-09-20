@@ -52,6 +52,9 @@ const templateFor = (cat) => (PICK.find(([re]) => re.test(cat || '')) || [])[1];
 /** Mobile prefixes we can reach on WhatsApp. Add a country by adding its prefix here. */
 const MOBILE = [/^923/, /^447/];
 
+/** "Stretford, Manchester", but just "Manchester" when the area IS the city. */
+const placeOf = (area, city) => (area && area !== city ? area + ', ' + city : city);
+
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 42);
 const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -139,6 +142,11 @@ for (const l of leads) {
     .split('{{ADDRESS}}').join(twoLine(l.address) || esc(city))
     .split('{{AREA2}}').join(areaOf(l.address, city))
     .split('{{AREA}}').join(areaOf(l.address, city))
+    // "Manchester, Manchester" in a tab title and a link preview. Happens whenever the
+    // address has no neighbourhood distinct from the city and areaOf correctly falls back
+    // to it, so the fix belongs here rather than in areaOf.
+    .split('{{PLACE}}').join(placeOf(areaOf(l.address, city), esc(city)))
+    .split('{{CATEGORY}}').join(esc(l.category || ''))
     .split('{{CITY}}').join(esc(city));
 
   const leftover = html.match(/\{\{[A-Z0-9]+\}\}/g);
