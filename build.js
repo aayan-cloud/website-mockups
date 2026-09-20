@@ -146,7 +146,12 @@ for (const l of leads) {
     // address has no neighbourhood distinct from the city and areaOf correctly falls back
     // to it, so the fix belongs here rather than in areaOf.
     .split('{{PLACE}}').join(placeOf(areaOf(l.address, city), esc(city)))
-    .split('{{CATEGORY}}').join(esc(l.category || ''))
+    // The headline states what the business IS, which is a stronger claim than the service
+    // list the draft disclaimer covers. Google's category is right most of the time and
+    // wrong in a way only a human spots: "Dog breeder" for a mobile grooming service that
+    // also breeds is confidently wrong about a stranger's own business. `headline` on the
+    // lead overrides it; the run prints every headline at the end so they can be scanned.
+    .split('{{CATEGORY}}').join(esc(l.headline || l.category || ''))
     .split('{{CITY}}').join(esc(city));
 
   const leftover = html.match(/\{\{[A-Z0-9]+\}\}/g);
@@ -155,7 +160,7 @@ for (const l of leads) {
   const dir = slug(l.title);
   fs.mkdirSync(path.join(__dirname, dir), { recursive: true });
   fs.writeFileSync(path.join(__dirname, dir, 'index.html'), html);
-  built.push({ dir, tpl, title: l.title, reviews: l.reviews, rating: l.rating, phone: l.phone, wa, city, category: l.category });
+  built.push({ dir, tpl, title: l.title, reviews: l.reviews, rating: l.rating, phone: l.phone, wa, city, category: l.category, headline: l.headline || l.category, niche: l.niche });
 }
 
 // Merge rather than clobber. built.json is the index the clip tooling reads, and a run over
@@ -173,4 +178,22 @@ Object.entries(byTpl).forEach(([t, n]) => console.log('  ' + String(n).padStart(
 if (skipped.length) {
   console.log('\n' + skipped.length + ' skipped:');
   skipped.slice(0, 12).forEach(([t, why]) => console.log('  ' + t.slice(0, 40).padEnd(42) + why));
+}
+
+// Every headline, grouped and counted, for a human to scan. This is the only check on it:
+// the headline asserts what a stranger's business IS, and no rule catches "Dog breeder"
+// being the wrong facet of a business whose own name says mobile pet services. Grouping
+// does the work a cleverer detector could not - the one-offs at the bottom are the ones to
+// read, because a niche run should produce one headline many times over.
+if (built.length) {
+  const groups = new Map();
+  for (const b of built.filter((x) => x.tpl === 'localservice')) {
+    if (!groups.has(b.headline)) groups.set(b.headline, []);
+    groups.get(b.headline).push(b.title);
+  }
+  console.log('\nheadlines, read these before sending anything:');
+  for (const [head, names] of [...groups].sort((a, b) => b[1].length - a[1].length)) {
+    console.log(`  ${String(names.length).padStart(3)}x  "${head} in ..."`);
+    if (names.length <= 2) names.forEach((n) => console.log('          ' + n));
+  }
 }
