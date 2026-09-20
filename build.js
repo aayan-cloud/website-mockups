@@ -50,9 +50,23 @@ const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').
 /** "+92 301 8666055" -> "923018666055" */
 const digits = (s) => String(s || '').replace(/[^0-9]/g, '');
 
+/**
+ * Country suffixes that should never reach a page. Defined once because it was previously
+ * written out three times and only one of them ever learned about the UK, which put
+ * "United Kingdom" in the address block of every GB page.
+ */
+const COUNTRY = /,?\s*(Pakistan|United Kingdom|UK|England|Scotland|Wales)$/i;
+
+/**
+ * A UK postcode stuck on the end of a part: "Leeds LS6 3AA" -> "Leeds". Headings want the
+ * neighbourhood, and a postcode passes every other test in areaOf() while being exactly the
+ * wrong answer - "167 people in Leeds LS6 3AA" is how you look like a mail merge.
+ */
+const POSTCODE = /\s+[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}$/i;
+
 /** Google gives one long address line; the pages want two. Split on a comma near the middle. */
 function twoLine(addr) {
-  const a = String(addr || '').replace(/, Pakistan$/, '').trim();
+  const a = String(addr || '').replace(COUNTRY, '').trim();
   if (a.length < 46) return esc(a);
   const parts = a.split(', ');
   let first = '', i = 0;
@@ -62,8 +76,12 @@ function twoLine(addr) {
 
 /** The neighbourhood, for headings like "Find the salon in <area>". */
 function areaOf(addr, city) {
-  const a = String(addr || '').replace(/, Pakistan$/, '').split(', ').filter(Boolean);
-  const c = String(city || '').replace(/ Pakistan$/, '');
+  const a = String(addr || '')
+    .replace(COUNTRY, '')
+    .split(', ')
+    .map((p) => p.replace(POSTCODE, '').trim())
+    .filter(Boolean);
+  const c = String(city || '').replace(COUNTRY, '');
   const hit = a.slice(0, -1).reverse().find((p) => p && !/^\d/.test(p) && p !== c && p.length > 3 && p.length < 30);
   return esc(hit || c);
 }
@@ -99,7 +117,7 @@ for (const l of leads) {
   if (!MOBILE.some((re) => re.test(wa))) { skipped.push([l.title, 'no mobile number']); continue; }
   if (!l.reviews) { skipped.push([l.title, 'no reviews - nothing to open the message with']); continue; }
 
-  const city = String(l.city || '').replace(/,?\s*(Pakistan|United Kingdom|UK|England|Scotland|Wales)$/i, '');
+  const city = String(l.city || '').replace(COUNTRY, '');
   const short = esc(l.title.split(/[-(–|]/)[0].trim().slice(0, 34));
   const html = fs.readFileSync(path.join(TPL, tpl + '.html'), 'utf8')
     .split('{{NAME}}').join(esc(l.title))
