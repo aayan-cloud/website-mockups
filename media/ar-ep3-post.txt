@@ -1,0 +1,19 @@
+EPISODE 3 - "Thinking..." (@aayanrealm)
+File: ep3-thinking-phone.mp4 (31 MB, for uploading from the phone; master: ep3-thinking.mp4, 146 MB; ep3-thinking-send.mp4, 22 MB, for sending over chat)
+Cover: frame 0 (the Builder on the giant graphics card, chin on fist, LOCAL's strip reading "thinking..." under "Local. You thought so hard you forgot to answer me.")
+Listen once before posting (LOCAL's voice is Edge "Christopher", slowed down; AGENT's cameo is Ryan again, as in Ep1).
+
+CAPTION
+my local AI thought so hard it forgot to answer me 💀
+it runs on my own graphics card. no subscription, client files never leave my PC
+had to switch thinking off lol
+comment LOCAL and I'll send you my setup 👇
+
+DM REPLY (send to everyone who comments LOCAL)
+here's my setup:
+1. an open model (Qwen, 27B) running on my own graphics card (16 GB)
+2. llama.cpp's local server on my PC, so nothing leaves the machine
+3. thinking is off ("enable_thinking": false). with it on, it spent the whole reply thinking and never answered
+4. it only loads when something asks for it, and goes to sleep after 5 idle minutes
+5. slower than cloud AI, but no subscription and client files stay on my PC
+honest note: you need a strong graphics card for this. and I don't run it while gaming, they share the card
